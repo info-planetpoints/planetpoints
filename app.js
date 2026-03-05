@@ -120,7 +120,7 @@
         newsletter.reset();
       });
     }
-    const contact = document.querySelector('.form-container form');
+    const contact = document.querySelector('#contactForm');
     if(contact){
       contact.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -137,19 +137,6 @@
     }
   }
 
-  function initCalculator(){
-    const form = $('#pointsForm');
-    const result = $('#result');
-    if(!form || !result) return;
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const recycling = parseFloat($('#recycling').value) || 0;
-      const walking = parseFloat($('#walking').value) || 0;
-      const planting = parseInt($('#planting').value) || 0;
-      const points = (recycling * 10) + (walking * 5) + (planting * 50);
-      result.textContent = `Možete zaraditi ${points} poena!`;
-    });
-  }
 
   const quizData = [
     {
@@ -228,7 +215,5 @@
     fixLogo();
     registerSW();
     initForms();
-    initCalculator();
-    initQuiz();
   });
 })(); 
